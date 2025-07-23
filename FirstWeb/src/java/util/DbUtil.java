@@ -25,9 +25,14 @@ public class DbUtil {
     
     public  Connection getCon(){
     
+        
+        
         try {
+            Class.forName(driver);
             connection=DriverManager.getConnection(url, user, password);
-        } catch (SQLException ex) {
+        } catch (SQLException  ex) {
+            Logger.getLogger(DbUtil.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(DbUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
         return connection ;
