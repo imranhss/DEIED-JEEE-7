@@ -8,6 +8,8 @@ import entity.Student;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.text.html.HTML;
@@ -24,6 +26,7 @@ public class StudentDao {
     public static String sql;
     public static ResultSet rs;
 
+    // For Save 
     public static int saveStudent(Student s) {
 
         int status = 0;
@@ -35,14 +38,40 @@ public class StudentDao {
             ps.setString(1, s.getName());
             ps.setString(2, s.getEmail());
             ps.setFloat(3, s.getFee());
-            
+
             status = ps.executeUpdate();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(StudentDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return status;
+    }
+
+    // For show all Data 
+    public static List<Student> showAllStudent() {
+        List<Student> stuList = new ArrayList<>();
+        sql = "select * from student";
+
+        try {
+            ps = du.getCon().prepareStatement(sql);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Student s = new Student(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getFloat("fee")
+                );
+                stuList.add(s);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return stuList;
     }
 
 }
