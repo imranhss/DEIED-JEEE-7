@@ -1,3 +1,6 @@
+<%@include file="header.jsp" %>
+
+
 <%@page  import="dao.StudentDao" %>
 <%@page  import="entity.Student" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -9,35 +12,41 @@
     request.setAttribute("list", list);
 %>
 
-<h1>All Students</h1>
 
-<table border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Fee</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    
-    <tbody>
-        <c:forEach var="s" items="${list}">
+<div class="container">
+    <h1 class="text-center">All Students</h1>
+
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>${s.getId()}</td>
-                <td>${s.getName()}</td>
-                <td>${s.getEmail()}</td>
-                <td>${s.getFee()}</td>
-                <td></td>
-                
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Fee</th>
+                <th>Action</th>
             </tr>
-        </c:forEach>
-        
-    </tbody>
-    
-    
-</table>
+        </thead>
+
+        <tbody>
+            <c:forEach var="s" items="${list}">
+                <tr>
+                    <td>${s.getId()}</td>
+                    <td>${s.getName()}</td>
+                    <td>${s.getEmail()}</td>
+                    <td>${s.getFee()}</td>
+                    <td>
+                        <a href="editFrom.jsp?id=${s.id}" class="btn btn-warning">Edit</a>
+                        <a href="delete.jsp?id=${s.id}" class="btn btn-danger">Delete</a>
+                        
+                    </td>
+
+                </tr>
+            </c:forEach>        
+        </tbody>
 
 
+    </table>
+</div>
 
+
+<%@include  file="footer1.jsp" %>
