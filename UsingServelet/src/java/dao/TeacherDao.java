@@ -4,7 +4,12 @@
  */
 package dao;
 
+import static dao.StudentDao.du;
+import static dao.StudentDao.ps;
+import static dao.StudentDao.rs;
+import static dao.StudentDao.sql;
 import entity.Student;
+import entity.Teacher;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,47 +17,47 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.text.html.HTML;
 import util.DbUtil;
 
 /**
  *
  * @author WADA
  */
-public class StudentDao {
+public class TeacherDao {
 
     static DbUtil du = new DbUtil();
     public static PreparedStatement ps;
     public static String sql;
     public static ResultSet rs;
-
-    // For Save 
-    public static int saveStudent(Student s) {
+    
+    
+     // For Save 
+    public static int saveTeacher(Teacher t) {
 
         int status = 0;
 
-        sql = "insert into student(name, email, fee, photo) values(?,?,?,?)";
+        sql = "insert into teacher(name, email, gender, department) values(?,?,?)";
         try {
             ps = du.getCon().prepareStatement(sql);
 
-            ps.setString(1, s.getName());
-            ps.setString(2, s.getEmail());
-            ps.setFloat(3, s.getFee());
-             ps.setString(4, s.getPhoto());
+            ps.setString(1, t.getName());
+            ps.setString(2, t.getEmail());
+            ps.setString(3, t.getGender());
+            ps.setString(4, t.getDepartment());
 
             status = ps.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(StudentDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TeacherDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return status;
     }
 
     // For show all Data 
-    public static List<Student> showAllStudent() {
-        List<Student> stuList = new ArrayList<>();
-        sql = "select * from student";
+    public static List<Teacher> showAllStudent() {
+        List<Teacher> teacherList = new ArrayList<>();
+        sql = "select * from teacher";
 
         try {
             ps = du.getCon().prepareStatement(sql);
@@ -60,26 +65,27 @@ public class StudentDao {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Student s = new Student(
+                Teacher s = new Teacher(
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("email"),
-                         rs.getString("photo"),
-                        rs.getFloat("fee")
+                        rs.getString("gender"),
+                        rs.getString("department")
+                        
                 );
-                stuList.add(s);
+                teacherList.add(s);
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(StudentDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TeacherDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return stuList;
+        return teacherList;
     }
 
-    public static int deleteStudent(int id) {
+    public static int deleteTeacher(int id) {
 
         int status = 0;
-        sql = "delete from student where id = ?";
+        sql = "delete from teacher where id = ?";
 
         try {
             ps = du.getCon().prepareStatement(sql);
@@ -88,15 +94,15 @@ public class StudentDao {
             status = ps.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(StudentDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TeacherDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return status;
     }
 
-    public static Student getStudentById(int id) {
-        Student s = new Student();
-        sql = "select * from student  where id=?";
+    public static Teacher getTeacherById(int id) {
+        Teacher t = new Teacher();
+        sql = "select * from teacher  where id=?";
 
         try {
             ps = du.getCon().prepareStatement(sql);
@@ -105,41 +111,42 @@ public class StudentDao {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                s = new Student(
+                t = new Teacher(
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("email"),
-                         rs.getString("photo"),
-                        rs.getFloat("fee")
+                        rs.getString("gender"),
+                        rs.getString("department")
+                       
                 );
                 
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(StudentDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TeacherDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return s;
+        return t;
     }
     
     
-    public  static  int updateStudent(Student s){
+    public  static  int updateTeacher(Teacher t){
         int status=0;
         
-        sql="update student set name =?, email =?, fee= ?, photo=? where id=?"; 
+        sql="update student set name =?, email =?, gender= ?, department=? where id=?"; 
         
         try {
             ps=du.getCon().prepareStatement(sql);
             
-            ps.setString(1, s.getName());
-            ps.setString(2, s.getEmail());
-            ps.setFloat(3, s.getFee());
-            ps.setString(4, s.getPhoto());
-            ps.setInt(5, s.getId());
+            ps.setString(1, t.getName());
+            ps.setString(2, t.getEmail());
+            ps.setString(3, t.getGender());
+            ps.setString(4, t.getDepartment());
+            ps.setInt(5, t.getId());
 
             status = ps.executeUpdate();
             
         } catch (SQLException ex) {
-            Logger.getLogger(StudentDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TeacherDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return status;
     }

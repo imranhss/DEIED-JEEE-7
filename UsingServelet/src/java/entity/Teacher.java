@@ -8,33 +8,31 @@ package entity;
  *
  * @author WADA
  */
-public class Student {
-   
+public class Teacher {
+
     private int id;
     private String name;
     private String email;
-    private String photo;
-    private float  fee;
+    private String gender;
+    private String department;
 
-    public Student() {
+    public Teacher() {
     }
 
-    public Student(int id, String name, String email, String photo, float fee) {
+    public Teacher(int id, String name, String email, String gender, String department) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.photo = photo;
-        this.fee = fee;
+        this.gender = gender;
+        this.department = department;
     }
 
-    public Student(String name, String email, String photo, float fee) {
+    public Teacher(String name, String email, String gender, String department) {
         this.name = name;
         this.email = email;
-        this.photo = photo;
-        this.fee = fee;
+        this.gender = gender;
+        this.department = department;
     }
-
-   
 
     public int getId() {
         return id;
@@ -60,22 +58,20 @@ public class Student {
         this.email = email;
     }
 
-    public float getFee() {
-        return fee;
+    public String getGender() {
+        return gender;
     }
 
-    public void setFee(float fee) {
-        this.fee = fee;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getDepartment() {
+        return department;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setDepartment(String department) {
+        this.department = department;
     }
-    
-    
-   
+
 }
