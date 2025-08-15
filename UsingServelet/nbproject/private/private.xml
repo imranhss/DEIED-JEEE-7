@@ -6,13 +6,12 @@
             <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/src/java/util/DbUtil.java</file>
             <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/src/java/dao/StudentDao.java</file>
             <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/src/java/servelet/StudentServelet.java</file>
-            <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/src/java/entity/Teacher.java</file>
             <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/web/index.jsp</file>
-            <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/src/java/entity/Student.java</file>
+            <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/src/java/entity/Result.java</file>
             <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/src/java/dao/TeacherDao.java</file>
+            <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/src/java/entity/Student.java</file>
+            <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/src/java/dao/ResultDao.java</file>
             <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/web/editStudent.jsp</file>
-            <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/web/header.jsp</file>
             <file>file:/C:/Users/WADA/Documents/NetBeansProjects/UsingServelet/web/addStudent.jsp</file>
         </group>
     </open-files>
