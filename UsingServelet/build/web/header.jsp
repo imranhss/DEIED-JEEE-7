@@ -18,7 +18,7 @@
       <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="showallsrtudent.jsp">Home</a>
           <a class="nav-link" href="addStudent.jsp">Add Student</a>
-        <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="resultview.jsp">All Result</a>
         <a class="nav-link disabled" aria-disabled="true">Disabled</a>
       </div>
     </div>

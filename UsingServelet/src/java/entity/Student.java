@@ -34,6 +34,13 @@ public class Student {
         this.fee = fee;
     }
 
+    public Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+     
+    
    
 
     public int getId() {

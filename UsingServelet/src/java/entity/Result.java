@@ -15,27 +15,32 @@ public class Result {
     private float mark;
     private int subjectCode;
     private String grade;
-    private int studentId;
+//    private int studentId;
+    private Student student;
 
     public Result() {
     }
 
-    public Result(int id, String subjectName, float mark, int subjectCode, String grade, int studentId) {
+    public Result(int id, String subjectName, float mark, int subjectCode, String grade, Student student) {
         this.id = id;
         this.subjectName = subjectName;
         this.mark = mark;
         this.subjectCode = subjectCode;
         this.grade = grade;
-        this.studentId = studentId;
+        this.student = student;
     }
 
-    public Result(String subjectName, float mark, int subjectCode, String grade, int studentId) {
+    public Result(int id, String subjectName, float mark, int subjectCode, String grade) {
+        this.id = id;
         this.subjectName = subjectName;
         this.mark = mark;
         this.subjectCode = subjectCode;
         this.grade = grade;
-        this.studentId = studentId;
     }
+
+    
+    
+    
 
     public int getId() {
         return id;
@@ -77,14 +82,22 @@ public class Result {
         this.grade = grade;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setStudent(Student student) {
+        this.student = student;
     }
+
+    @Override
+    public String toString() {
+        return "Result{" + "id=" + id + ", subjectName=" + subjectName + ", mark=" + mark + ", subjectCode=" + subjectCode + ", grade=" + grade + ", student=" + student + '}';
+    }
+
     
+    
+
     
     
     
