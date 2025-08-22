@@ -98,12 +98,5 @@ public class Result {
         return "Result{" + "id=" + id + ", subjectName=" + subjectName + ", mark=" + mark + ", subjectCode=" + subjectCode + ", grade=" + grade + ", student=" + student + '}';
     }
 
-    
-    
-
-    
-    
-    
-    
-    
+  
 }

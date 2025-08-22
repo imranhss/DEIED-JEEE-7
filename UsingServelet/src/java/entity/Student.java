@@ -9,12 +9,14 @@ package entity;
  * @author WADA
  */
 public class Student {
-   
+
     private int id;
     private String name;
     private String email;
     private String photo;
-    private float  fee;
+    private float fee;
+
+    private GradeClass gradeClass;
 
     public Student() {
     }
@@ -34,14 +36,22 @@ public class Student {
         this.fee = fee;
     }
 
+    public Student(String name, String email, String photo, float fee, GradeClass gradeClass) {
+        this.name = name;
+        this.email = email;
+        this.photo = photo;
+        this.fee = fee;
+        this.gradeClass = gradeClass;
+    }
+    
+    
+    
+    
+
     public Student(int id, String name) {
         this.id = id;
         this.name = name;
     }
-
-     
-    
-   
 
     public int getId() {
         return id;
@@ -82,7 +92,13 @@ public class Student {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
-    
-    
-   
+
+    public GradeClass getGradeClass() {
+        return gradeClass;
+    }
+
+    public void setGradeClass(GradeClass gradeClass) {
+        this.gradeClass = gradeClass;
+    }
+
 }
