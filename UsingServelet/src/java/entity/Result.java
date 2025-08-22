@@ -15,8 +15,11 @@ public class Result {
     private float mark;
     private int subjectCode;
     private String grade;
-//    private int studentId;
+
+    
     private Student student;
+    
+    
 
     public Result() {
     }

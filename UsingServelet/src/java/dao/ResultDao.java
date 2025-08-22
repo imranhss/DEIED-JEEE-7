@@ -4,9 +4,7 @@
  */
 package dao;
 
-import static dao.StudentDao.du;
-import static dao.StudentDao.ps;
-import static dao.StudentDao.sql;
+
 import entity.Result;
 import entity.Student;
 import java.sql.PreparedStatement;
@@ -64,8 +62,8 @@ public class ResultDao {
             while (rs.next()) {
 
                 Student s = new Student();
-
                 s.setName(rs.getString("name"));
+                
 
                 Result result = new Result();
                 result.setId(rs.getInt("id"));
@@ -73,6 +71,8 @@ public class ResultDao {
                 result.setSubjectName(rs.getString("subjectName"));
                 result.setMark(rs.getFloat("mark"));
                 result.setSubjectCode(rs.getInt("subjectCode"));
+                
+                
                 result.setStudent(s);
 
                 resultList.add(result);

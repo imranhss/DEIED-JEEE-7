@@ -6,7 +6,7 @@
 
 <%
     List<Result> list = ResultDao.getAllResult();
-    request.setAttribute("list", list);
+    request.setAttribute("apple", list);
 %>
 
 
@@ -28,7 +28,7 @@
         </thead>
 
         <tbody>
-            <c:forEach var="r" items="${list}">
+            <c:forEach var="r" items="${apple}">
                 <tr>
                     <td>${r.id}</td>
                     
