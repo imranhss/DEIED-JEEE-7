@@ -7,6 +7,7 @@ import { Home } from './home/home';
 import { Allstudent } from './student/allstudent/allstudent';
 import { Addstudent } from './student/addstudent/addstudent';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

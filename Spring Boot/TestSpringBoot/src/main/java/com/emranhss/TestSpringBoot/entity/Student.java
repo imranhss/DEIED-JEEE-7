@@ -18,6 +18,9 @@ public class Student {
     @Column(length = 60, nullable = false, unique = true)
     private String email;
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
 
@@ -53,5 +56,13 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

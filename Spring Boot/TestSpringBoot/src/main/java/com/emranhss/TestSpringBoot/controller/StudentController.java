@@ -2,6 +2,8 @@ package com.emranhss.TestSpringBoot.controller;
 
 
 import com.emranhss.TestSpringBoot.entity.Student;
+import com.emranhss.TestSpringBoot.entity.User;
+import com.emranhss.TestSpringBoot.service.AuthService;
 import com.emranhss.TestSpringBoot.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,21 +13,29 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/student")
-@CrossOrigin("*")
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
 
 
-    @PostMapping
-    public void saveStudent(@RequestBody Student student) {
+    @Autowired
+    private AuthService authService;
 
-          studentService.save(student);
+
+    @PostMapping("/save")
+    public void saveStudent(@RequestPart Student student, @RequestPart User user) {
+
+
+        authService.registerStudent(user, student);
 
     }
 
-    @GetMapping
+
+
+
+
+    @GetMapping("/all")
     public List<Student> getAllStudent(){
         return  studentService.findAll();
     }

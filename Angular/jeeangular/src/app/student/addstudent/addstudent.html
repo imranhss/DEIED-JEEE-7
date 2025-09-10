@@ -1,1 +1,21 @@
-<p>addstudent works!</p>
+<div class="container">
+
+    <form [formGroup]="formGroup">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input type="text" class="form-control"  formControlName="name">
+           
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">age</label>
+            <input type="text"  class="form-control"  formControlName="age">
+        </div>
+        
+        <button type="button" class="btn btn-primary" (click)="onSubmit()" >Submit</button>
+    </form>
+
+</div>

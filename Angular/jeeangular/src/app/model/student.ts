@@ -1,12 +1,12 @@
 
 
 
-export interface StudentModel{
+export interface StudentModel {
 
-id: number;
-name: string;
-age: number;
-email: string;
+    id: number;
+    name: string;
+    age: number;
+    email: string;
 
 
 
