@@ -5,9 +5,11 @@ import com.emranhss.TestSpringBoot.entity.Student;
 import com.emranhss.TestSpringBoot.entity.User;
 import com.emranhss.TestSpringBoot.service.AuthService;
 import com.emranhss.TestSpringBoot.service.StudentService;
+import jakarta.servlet.annotation.MultipartConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -24,10 +26,10 @@ public class StudentController {
 
 
     @PostMapping("/save")
-    public void saveStudent(@RequestPart Student student, @RequestPart User user) {
+    public void saveStudent(@RequestPart Student student, @RequestPart User user, @RequestParam MultipartFile photo) {
 
 
-        authService.registerStudent(user, student);
+        authService.registerStudent(user, student,  photo);
 
     }
 

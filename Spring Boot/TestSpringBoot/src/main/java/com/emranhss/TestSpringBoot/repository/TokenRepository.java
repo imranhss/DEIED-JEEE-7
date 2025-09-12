@@ -18,6 +18,6 @@ public interface TokenRepository extends JpaRepository<Token,Long> {
     Select t from Token t inner join User u on t.user.id= u.id
     where t.user.id= :userId and t.logout=false
 """)
-    List<Token> findAllTokenByUser(int userId);
+    List<Token> findAllTokenByUser(long userId);
 
 }

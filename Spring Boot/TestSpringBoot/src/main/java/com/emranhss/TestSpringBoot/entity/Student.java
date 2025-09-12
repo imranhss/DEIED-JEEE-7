@@ -14,6 +14,7 @@ public class Student {
     @Column(length = 30, nullable = false)
     private String name;
     private int age;
+    private String photo;
 
     @Column(length = 60, nullable = false, unique = true)
     private String email;
@@ -64,5 +65,13 @@ public class Student {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

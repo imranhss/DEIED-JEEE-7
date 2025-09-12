@@ -42,7 +42,9 @@ public class SecurityConfig {
                         req ->
                                 req.requestMatchers(
                                                 "/api/student/save",
-                                                "/api/student/all"
+                                                "/api/student/all",
+                                                "/api/user/active/**",
+                                                "/api/user/login"
 
                                         ).permitAll()
 
@@ -97,8 +99,6 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-
-
 
 
 }
